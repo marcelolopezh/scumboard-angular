@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectServiceService } from '../services/project-service.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-project',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectComponent implements OnInit {
 
-  constructor() { }
+  titulo:string = "First Project"
+  description:string = "A Test Project Data Binding, ScrumBoard Management Platform Project under Scrum Metology"
+  projectList:any;
+  constructor(public projectService:ProjectServiceService, private router:Router) { 
+    this.projectList=this.projectService.loadProjects();
+  }
 
   ngOnInit(): void {
   }
