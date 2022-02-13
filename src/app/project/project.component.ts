@@ -19,5 +19,7 @@ export class ProjectComponent implements OnInit {
       this.projectList = projects
     })
   }
-
+  public details(id){
+    this.router.navigate(['projects/'+id]);
+  }
 }
